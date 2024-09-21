@@ -13,25 +13,35 @@ int strcmp_case_insensitive(string, string);
 
 int main()
 {
-  assert(strcmp_case_insensitive("apple", "bannana") < 0);
-  cout << "First compare done" << endl << endl;
+  assert(strcmp_case_insensitive("apple", "bannana") == -1);
+  cout << "\"apple\" compared to \"banana\" == " << strcmp_case_insensitive("apple", "banana") << endl << endl;
 
-  assert(strcmp_case_insensitive("bannana", "apple") > 0);
-  cout << "Second compare done" << endl << endl;
+  assert(strcmp_case_insensitive("bannana", "apple") == 1);
+  cout << "\"banana\" compared to \"apple\" == " << strcmp_case_insensitive("banana", "apple") << endl << endl;
 
   assert(strcmp_case_insensitive("apple", "apple") == 0);
-  cout << "Third compare done" << endl << endl;
+  cout << "\"apple\" compared to \"apple\" == " << strcmp_case_insensitive("apple", "apple") << endl << endl;
 
   assert(strcmp_case_insensitive("Apple", "apple") == 0);
-  cout << "Fourth compare done" << endl << endl;
+  cout << "\"Apple\" compared to \"apple\" == " << strcmp_case_insensitive("Apple", "apple") << endl << endl;
 
-  cout << "Apples vs Apple comparison = " << strcmp_case_insensitive("apples", "apple") << endl;
   assert(strcmp_case_insensitive("apples", "apple") == 1);
-  cout << "Fifth compare done" << endl << endl;
+  cout << "\"apples\" compared to \"apple\" == " << strcmp_case_insensitive("apples", "apple") << endl << endl;
 
-  cout << "Apple vs Apples comparison = " << strcmp_case_insensitive("apple", "apples") << endl;
   assert(strcmp_case_insensitive("apple", "apples") == -1);
-  cout << "Sixth compare done" << endl << endl;
+  cout << "\"apple\" compared to \"apples\" == " << strcmp_case_insensitive("apple", "apples") << endl << endl;
+
+  assert(strcmp_case_insensitive("banana", "Apple") == 1);
+  cout << "\"banana\" compared to \"Apple\" == " << strcmp_case_insensitive("banana", "Apple") << endl << endl;
+
+  assert(strcmp_case_insensitive("Banana", "Apples") == 1);
+  cout << "\"Banana\" compared to \"Apples\" == " << strcmp_case_insensitive("Banana", "Apples") << endl << endl;
+
+  assert(strcmp_case_insensitive("PeAr", "orANge") == 1);
+  cout << "\"PeAr\" compared to \"orANge\" == " << strcmp_case_insensitive("PeAr", "orANge") << endl << endl;
+
+  cout << "\nProgram ran succesfully!" << endl << endl;
+
 
   /*cout << "Please enter the first input: ";
   cin >> in1;
@@ -44,20 +54,20 @@ int strcmp_case_insensitive(string string1, string string2)
   int minLength{0};
   int tieBreaker{0};
 
-  if (string1.length() - string2.length() > 0)
+  if (string1.length() > string2.length())
   {
     minLength = string2.length();
     tieBreaker = 1;
   }
-  else if (string2.length() - string1.length() > 0)
+  else if (string1.length() == string2.length())
   {
     minLength = string1.length();
-    tieBreaker = 2;
+    tieBreaker = 0;
   }
   else
   {
     minLength = string1.length();
-    tieBreaker = 0;
+    tieBreaker = 2;
   }
 
 
