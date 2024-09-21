@@ -31,11 +31,11 @@ int main()
   assert(strcmp_case_insensitive("apple", "apples") == -1);
   cout << "\"apple\" compared to \"apples\" == " << strcmp_case_insensitive("apple", "apples") << endl << endl;
 
-  assert(strcmp_case_insensitive("banana", "Apple") == 1);
-  cout << "\"banana\" compared to \"Apple\" == " << strcmp_case_insensitive("banana", "Apple") << endl << endl;
+  assert(strcmp_case_insensitive("", "Apple") == -1);
+  cout << "\"\" compared to \"Apple\" == " << strcmp_case_insensitive("", "Apple") << endl << endl;
 
-  assert(strcmp_case_insensitive("Banana", "Apples") == 1);
-  cout << "\"Banana\" compared to \"Apples\" == " << strcmp_case_insensitive("Banana", "Apples") << endl << endl;
+  assert(strcmp_case_insensitive("Banana", "10") == 1);
+  cout << "\"Banana\" compared to \"10\" == " << strcmp_case_insensitive("Banana", "10") << endl << endl;
 
   assert(strcmp_case_insensitive("PeAr", "orANge") == 1);
   cout << "\"PeAr\" compared to \"orANge\" == " << strcmp_case_insensitive("PeAr", "orANge") << endl << endl;
@@ -68,6 +68,19 @@ int strcmp_case_insensitive(string string1, string string2)
   {
     minLength = string1.length();
     tieBreaker = 2;
+  }
+
+  if (string1 == "")
+  {
+    return -1;
+  }
+  else if (string2 == "")
+  {
+    return 1;
+  }
+  else if (string1 == "" && string2 == "")
+  {
+    return 0;
   }
 
 
